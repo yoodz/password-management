@@ -2,7 +2,7 @@ const crypto = require('crypto')
 const fs = require('fs')
 const chalk = require('chalk');
 const moment = require('moment');
-const  { tipMessage } = require('./message')
+const tm = require('./message')
 const os = require('os')
 
 var homeDir = os.homedir();
@@ -40,7 +40,7 @@ function savePass(name, username, password) {
     if (err) {
       console.log('fail', 'utils-60')
     } else {
-      tipMessage("addSuccess")
+      tm.tipMessage("addSuccess")
     }
   });
 }
@@ -49,7 +49,7 @@ function savePass(name, username, password) {
 function getPasswords(name, username, all) {
   fs.readFile(dirPath + "/pl", 'utf8', function (err, data) {
     if (err) {
-      tipMessage("emptyPassword")
+      tm.tipMessage("emptyPassword")
       process.exit()
     } else {
       var arr = data.split("\n");
@@ -75,7 +75,7 @@ function removeByNameOrUsesrname(name, username) {
   fs.readFile(dirPath + "/pl", 'utf8', function (err, data) {
     if (err) {
       console.log(err, 'utils-100')
-      tipMessage("emptyPassword")
+      tm.tipMessage("emptyPassword")
       process.exit()
     } else {
       var arr = data.split("\n");
@@ -88,7 +88,7 @@ function removeByNameOrUsesrname(name, username) {
         }
       }
       fs.writeFile(dirPath + "/pl", arr.join('\n'), { flag: "w" }, function (err) {
-        tipMessage("removeSuccess")
+        tm.tipMessage("removeSuccess")
       })
     }
   });
@@ -98,7 +98,7 @@ function removeByNameOrUsesrname(name, username) {
 function updateByNameAndUsesrname(name, username, password) {
   fs.readFile(dirPath + "/pl", 'utf8', function (err, data) {
     if (err) {
-      tipMessage("notFound")
+      tm.tipMessage("notFound")
       process.exit()
     } else {
       var arr = data.split("\n");
@@ -115,10 +115,10 @@ function updateByNameAndUsesrname(name, username, password) {
       }
       if (hitCount > 0) {
         fs.writeFile(dirPath + "/pl", arr.join('\n'), { flag: "w" }, function (err) {
-          tipMessage("updateSuccess")
+          tm.tipMessage("updateSuccess")
         })
       } else {
-        tipMessage("notFound")
+        tm.tipMessage("notFound")
       }
     }
   });
@@ -130,7 +130,7 @@ function initSecretKey(key) {
     if (err) {
       console.log('fail', 'utils-60')
     } else {
-      tipMessage('initSuccess')
+      tm.tipMessage('initSuccess')
     }
   });
 }
@@ -144,14 +144,14 @@ function getSecretKey() {
     return [key, iv]
     // })
   } catch (error) {
-    tipMessage('needInit')
+    tm.tipMessage('needInit')
     process.exit()
   }
 }
 
 function removeAllRecord() {
   fs.unlinkSync(dirPath + '/pl')
-  tipMessage('removeAllSuccess')
+  tm.tipMessage('removeAllSuccess')
 }
 
 

@@ -47,6 +47,6 @@ function tipMessage(key) {
     }
 }
 
-module.export = {
+module.exports = {
     tipMessage,
 }
