@@ -1,6 +1,8 @@
 # 命令行密码管理器
 
 ```shell
+pass -h
+
 Usage: index [options] [command]
 
 Options:

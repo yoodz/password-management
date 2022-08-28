@@ -13,9 +13,9 @@
     "commander": "^9.4.0",
     "moment": "^2.29.4"
   },
- "publishConfig": {
-  "registry": "https://registry.npmjs.org/"
-},
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:yoodz/password-management.git"
