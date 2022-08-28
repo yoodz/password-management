@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "author": "zhengdayong",
-  "homepage": "https://github.com/yoodz/clean-desktop#readme",
+  "homepage": "https://github.com/yoodz/password-management",
   "bin": {
     "pass": "./index.js"
   },
@@ -13,5 +13,17 @@
     "chalk": "^5.0.1",
     "commander": "^9.4.0",
     "moment": "^2.29.4"
-  }
+  },
+  "publishConfig": {
+    "registry": "https://www.npmjs.com/"
+ },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yoodz/password-management.git"
+  },
+  "keywords": [
+    "node",
+    "password management",
+    "password system"
+  ],
 }
