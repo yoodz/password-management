@@ -1,13 +1,13 @@
-import { program } from 'commander';
-import chalk from 'chalk';
-import  {
+const program = require('commander')
+const chalk = require('chalk');
+const {
   getPasswords,
   savePass,
   initSecretKey,
   removeByNameOrUsesrname,
   updateByNameAndUsesrname,
   removeAllRecord
-} from './utils.js'
+} = require('./utils')
 
 
 // 新增密码

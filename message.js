@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+const chalk = require('chalk');
 
 const messageMap = {
     needInit: {
@@ -47,6 +47,6 @@ function tipMessage(key) {
     }
 }
 
-export {
+module.export = {
     tipMessage,
 }

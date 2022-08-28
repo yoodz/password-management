@@ -1,9 +1,9 @@
-import crypto from 'crypto'
-import fs from 'fs'
-import chalk from 'chalk';
-import moment from 'moment';
-import  { tipMessage } from './message.js'
-import os from 'os'
+const crypto = require('crypto')
+const fs = require('fs')
+const chalk = require('chalk');
+const moment = require('moment');
+const  { tipMessage } = require('./message')
+const os = require('os')
 
 var homeDir = os.homedir();
 var dirPath = homeDir + "/.mypass";
@@ -156,7 +156,7 @@ function removeAllRecord() {
 
 
 
-export {
+module.exports = {
   decrypt,
   encrypt,
   savePass,
