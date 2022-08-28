@@ -41,7 +41,6 @@ program.command("get")
   .option('-u, --username <username>', 'get by username')
   .option('-a, --all', 'return all password')
   .action((data, options) => {
-    console.log(data, 'index-41')
     if (data.all) {
       // get all
       getPasswords("", "", 'all')
@@ -95,8 +94,3 @@ program.command("init")
   })
 
 program.parse(process.args);
-
-// const options = program.opts();
-// const limit = options.first ? 1 : undefined;
-// console.log(program.args[0], options, 'hello-11')
-// console.log(program.args[0].split(options.username, limit));

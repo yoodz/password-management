@@ -41,7 +41,7 @@ function tipMessage(key) {
     if (result.type === 'error') {
         console.log(chalk.bgRed(result.message));
     } else if (result.type === 'info') {
-        console.log(chalk.bgYellow(result.message));
+        console.log(chalk.bgGrey(result.message));
     } else {
         console.log(chalk.bgGreen(result.message));
     }
