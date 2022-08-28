@@ -1,0 +1,17 @@
+{
+  "name": "password-management",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "author": "zhengdayong",
+  "homepage": "https://github.com/yoodz/clean-desktop#readme",
+  "bin": {
+    "pass": "./index.js"
+  },
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "commander": "^9.4.0",
+    "moment": "^2.29.4"
+  }
+}
