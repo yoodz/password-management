@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "type": "module",
-  "author": "zhengdayong",
+  "author": "alison.zheng",
   "homepage": "https://github.com/yoodz/password-management",
   "bin": {
     "pass": "./index.js"
@@ -25,5 +25,5 @@
     "node",
     "password management",
     "password system"
-  ],
+  ]
 }
