@@ -36,14 +36,15 @@ const messageMap = {
 }
 
 // 消息提示
-function tipMessage(key) {
+function tipMessage(key, msg) {
     const result = messageMap[key]
+    const message = msg ? msg : result.message
     if (result.type === 'error') {
-        console.log(chalk.bgRed(result.message));
+        console.log(chalk.bgRed(message));
     } else if (result.type === 'info') {
-        console.log(chalk.bgGrey(result.message));
+        console.log(chalk.bgGrey(message));
     } else {
-        console.log(chalk.bgGreen(result.message));
+        console.log(chalk.bgGreen(message));
     }
 }
 

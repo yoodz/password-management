@@ -46,7 +46,7 @@ program.command("get")
       getPasswords("", "", 'all')
     } else {
       const { name, username } = data
-      getPasswords(name, username)
+      getPasswords(name, username, false, options.args[0])
     }
   });
 

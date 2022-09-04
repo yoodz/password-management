@@ -7,7 +7,7 @@ const os = require('os')
 
 var homeDir = os.homedir();
 var dirPath = homeDir + "/.mypass";
-// const homedir = require('os').homedir();
+
 
 // 加密
 function encrypt(str) {
@@ -46,7 +46,7 @@ function savePass(name, username, password) {
 }
 
 // 获取用户密码
-function getPasswords(name, username, all) {
+function getPasswords(name, username, all, keywords) {
   fs.readFile(dirPath + "/pl", 'utf8', function (err, data) {
     if (err) {
       tm.tipMessage("emptyPassword")
@@ -56,7 +56,7 @@ function getPasswords(name, username, all) {
       for (var i = 0, len = arr.length; i < len; i++) {
         if (arr[i]) {
           var onePass = JSON.parse(decrypt(arr[i]));
-          if (all || onePass.username.indexOf(username) !== -1 || onePass.name.indexOf(name) !== -1) {
+          if (all || onePass.username.indexOf(username) !== -1 || onePass.name.indexOf(name) !== -1 || onePass.name.indexOf(keywords) !== -1 || onePass.username.indexOf(keywords) !== -1) {
             console.log(
               chalk.green("name: ") + chalk.yellow(onePass.name) + ' '
               + chalk.green("username: ") + chalk.cyan(onePass.username) + ' '
@@ -125,14 +125,21 @@ function updateByNameAndUsesrname(name, username, password) {
 }
 
 // 初始化密钥
-function initSecretKey(key) {
-  fs.writeFile(dirPath + "/auth", key, { flag: "w" }, function (err) {
+async function initSecretKey(key) {
+  fs.mkdir(dirPath, (err) => {
     if (err) {
-      console.log('fail', 'utils-60')
-    } else {
-      tm.tipMessage('initSuccess')
+      tm.tipMessage('needInit', '已经初始化过了')
+      process.exit()
     }
-  });
+
+    fs.writeFile(dirPath + "/auth", key, { flag: "w" }, function (err) {
+      if (err) {
+        console.log(err, 'utils-60')
+      } else {
+        tm.tipMessage('initSuccess')
+      }
+    });
+  })
 }
 
 // 获取密钥
