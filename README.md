@@ -43,6 +43,8 @@ pass get -nbaidu
 pass get -ubaidu
 # 同时从名称和用户名查找
 pass get baidu
+# 查看所有的密码
+pass get -a
 ```
 ## 更新密码
 ```
