@@ -40,11 +40,11 @@ function tipMessage(key, msg) {
     const result = messageMap[key]
     const message = msg ? msg : result.message
     if (result.type === 'error') {
-        console.log(chalk.bgRed(message));
+        console.log(chalk.red(message));
     } else if (result.type === 'info') {
-        console.log(chalk.bgGrey(message));
+        console.log(chalk.gray(message));
     } else {
-        console.log(chalk.bgGreen(message));
+        console.log(chalk.green(message));
     }
 }
 

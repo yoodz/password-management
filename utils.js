@@ -74,7 +74,6 @@ function getPasswords(name, username, all, keywords) {
 function removeByNameOrUsesrname(name, username) {
   fs.readFile(dirPath + "/pl", 'utf8', function (err, data) {
     if (err) {
-      console.log(err, 'utils-100')
       tm.tipMessage("emptyPassword")
       process.exit()
     } else {
@@ -149,7 +148,6 @@ function getSecretKey() {
     const key = crypto.scryptSync(data, 'GfG', 32);
     const iv = crypto.scryptSync(data, 'GfG', 16);
     return [key, iv]
-    // })
   } catch (error) {
     tm.tipMessage('needInit')
     process.exit()
@@ -157,11 +155,14 @@ function getSecretKey() {
 }
 
 function removeAllRecord() {
-  fs.unlinkSync(dirPath + '/pl')
-  tm.tipMessage('removeAllSuccess')
+  try {
+    fs.unlinkSync(dirPath + '/pl')
+    tm.tipMessage('removeAllSuccess')
+  } catch (error) {
+    tm.tipMessage('needInit')
+    process.exit()
+  }
 }
-
-
 
 module.exports = {
   decrypt,

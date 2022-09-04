@@ -4,9 +4,14 @@
 ```
 npm install -g password-management
 ```
+## 更新安装包
+```
+npm update -g password-management
+```
 ## 查看帮助
 ```shell
-pass -h
+# 命令行执行查看命令帮助
+pass | pass -h
 
 Usage: index [options] [command]
 
@@ -26,8 +31,28 @@ Commands:
 ```
 pass init
 ```
-
 ## 新增密码
 ```
-pass add -n baidumail -r root -p root
+pass add -nbaidumail -uroot -proot
+```
+## 查看密码(模糊查找)
+```
+# 根据名称查找
+pass get -nbaidu
+# 根据用户名查找
+pass get -ubaidu
+# 同时从名称和用户名查找
+pass get baidu
+```
+## 更新密码
+```
+pass update -nbaidumail -uroot -proot
+```
+## 删除密码
+```
+pass remove -nroot -uroot
+```
+## 清空密码
+```
+pass removeAll
 ```

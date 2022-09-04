@@ -70,7 +70,6 @@ program.command("removeAll")
     })
 
     readline.question(chalk.bgRed(`This action cannot be undone. Are you absolutely sure?: (y/n)`), key => {
-      console.log(key, 'index-69')
       if (key === 'y') {
         removeAllRecord()
       }
